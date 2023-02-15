@@ -1,0 +1,31 @@
+General requirements for developers.
+====================================
+
+    - Python 3
+        - Virtualenv package - (pip install virtualenv)
+
+
+Follow steps to install flask correctly for this project.
+=========================================================
+
+    1.
+        create an venv in the project folder with:
+        
+        "virtualenv env" - ('venv' is the name of the virtualenv)
+
+    2.
+        enter the virtualenv with:
+
+        ". /env/Scripts/Activate.ps1"
+    
+    3.
+        install all required packages
+
+        "pip install flask"
+        "pip install flask-sqlalchemy"
+    
+    Optional:
+    (4.)
+        open the app.py to host a live server with the Webpage
+
+        "python app.py"
