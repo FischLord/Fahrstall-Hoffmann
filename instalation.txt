@@ -29,3 +29,12 @@ Follow steps to install flask correctly for this project.
         open the app.py to host a live server with the Webpage
 
         "python app.py"
+
+
+Requirments for hosting with WSGI
+=================================
+
+    1.
+        install gubicorn in your venv:
+
+        "pip install gunicorn"

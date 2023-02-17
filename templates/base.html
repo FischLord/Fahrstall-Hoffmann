@@ -4,100 +4,82 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="{{ url_for( 'static', filename='css/bulma.min.css') }}"
-            />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
             />
         <title>Fahrstall Hoffmann</title>
         <style>
-            .navbar{
-                height: 100px;
-            }
-            #logo{
-                max-height: 100%;
-            }
         </style>
         {% block head %} {% endblock %}
     </head>
     <body>
-        <!--! Navbar Start -->
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <!--todo put the link of the start page here-->
-                <a class="navbar-item" href="">
-                    <!--todo put your logo here-->
-                    <img
-                        src="{{ url_for( 'static', filename='images/logo.jpg')}}"
-                        id="logo"
-                        />
-                </a>
-
-                <a
-                    role="button"
-                    class="navbar-burger"
-                    aria-label="menu"
-                    aria-expanded="false"
-                    data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+        <!--! Navbar Start-->
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{url_for('index')}}">Fahrstall
+                    Hoffmann</a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item"> Über uns! </a>
-
-                    <a class="navbar-item"> Hochzeitskutsche </a>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link"> Mehr </a>
-
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item"> Kutschfahrten </a>
-                            <a class="navbar-item"> Fahrsport </a>
-                            <a class="navbar-item"> Termine 2023 </a>
-                            <hr class="navbar-divider" />
-                            <a class="navbar-item"> Report an issue </a>
-                        </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="{{url_for('ueberUns')}}">Über uns!</a></li>
+                    <li><a href="{{url_for('hochzeitskutsche')}}">Hochzeitskutsche</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                            placeholder="...">
                     </div>
+                    <button type="submit" class="btn btn-default">Suche</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{url_for('kutschfahrten')}}">Kutschfahrten</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                            data-toggle="dropdown">Mehr <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url_for('termine2023')}}">Termine
+                                    2023</a></li>
+                            <li><a href="{{url_for('fahrsport')}}">Fahrsport</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        <!--! Navbar End-->
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-2">
+                    {% block left %}{% endblock %}
                 </div>
-
-                <div class="navbar-end">
-                    <!--
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary">
-                        <strong>Sign up</strong> 
-                    </a>
-                    <a class="button is-light"> Log in </a>
+                <div class="col-sm-8">
+                    {% block body %} {% endblock %}
+                </div>
+                <div class="col-sm-2">
+                    {% block right %}{% endblock %}
                 </div>
             </div>
         </div>
-        -->
-                </div>
-            </nav>
-            <!--! Navbar End -->
-            {% block body %} {% endblock %}
-            <!--! Footer Start-->
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>
-                        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy
-                            Thomas</a>. The source code is licensed
-                        <a
-                            href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-                        The website content
-                        is licensed <a
-                            href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC
-                            BY NC SA 4.0</a>.
-                    </p>
-                </div>
-            </footer>
-            <!--! Footer End-->
-        </body>
-    </html>
+    </body>
+</html>
